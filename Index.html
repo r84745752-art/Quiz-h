@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VDO Test - 08 (Schedule Wise) - VDO-2025</title>
+
+  <!-- Google Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;600&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- Welcome Screen -->
+    <div class="welcome-screen" id="welcome-screen">
+      <h1 class="welcome-title">Welcome to Quiz</h1>
+      <h2 class="test-name-display">VDO Test - 08 (Schedule Wise)</h2>
+      <p class="category-display">VDO-2025</p>
+
+      <div style="margin-bottom: 15px;">
+        <a href="https://t.me/DecodeSikar" target="_blank" class="join-btn">🚀 Join Telegram</a>
+      </div>
+
+      <div class="quiz-stats">
+        <div class="stat-card">
+          <div class="stat-value" id="stat-questions">10</div>
+          <div class="stat-label">Total Questions</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="stat-marks">10</div>
+          <div class="stat-label">Total Marks</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="stat-time">20</div>
+          <div class="stat-label">Minutes</div>
+        </div>
+      </div>
+
+      <button class="start-btn" onclick="startQuiz()">
+        <i class="fas fa-play"></i> Start Quiz
+      </button>
+    </div>
+
+    <!-- Quiz Interface -->
+    <div class="quiz-interface" id="quiz-interface" style="display:none;">
+      <header>
+        <h1>VDO Test - 08 (Schedule Wise)</h1>
+        <p style="text-align:center;color:#718096;margin-top:5px;">VDO-2025</p>
+        <div class="quiz-info">
+          <div class="info-item">Total Questions: <span id="info-questions">10</span></div>
+          <div class="info-item">Total Marks: <span id="info-marks">10</span></div>
+          <div class="info-item">Time: <span id="info-time">20</span> Minutes</div>
+        </div>
+      </header>
+
+      <div class="timer-container">
+        <div class="timer" id="timer">
+          <i class="fas fa-clock"></i>
+          <span id="time-display">00:00</span>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin:20px 0;">
+        <button class="submit-btn" id="top-submit-btn" onclick="submitQuiz()"><i class="fas fa-check"></i> Submit Quiz</button>
+      </div>
+
+      <div class="progress-container"><div class="progress-bar" id="progress-bar"></div></div>
+      <div class="question-count" id="question-count">Question 1/10</div>
+
+      <div id="quiz-content"></div>
+
+      <div class="navigation">
+        <button id="prev-btn" onclick="prevQuestion()" disabled><i class="fas fa-chevron-left"></i> Previous / पिछला</button>
+        <button id="next-btn" onclick="nextQuestion()">Next / अगला <i class="fas fa-chevron-right"></i></button>
+      </div>
+
+      <div style="text-align:center;margin-top:20px;">
+        <button class="submit-btn" id="submit-btn" onclick="submitQuiz()" style="display:none;"><i class="fas fa-check"></i> Submit Quiz / परीक्षा समाप्त करें</button>
+      </div>
+    </div>
+
+    <!-- Results -->
+    <div class="result-container" id="result-container" style="display:none;">
+      <h2>Your Results</h2>
+      <div class="score" id="score">0/10</div>
+      <p class="performance-message" id="result-message"></p>
+
+      <div class="score-breakdown" id="score-breakdown">
+        <div class="breakdown-item correct">
+          <div class="breakdown-number" id="correct-count">0</div>
+          <div class="breakdown-label">Correct</div>
+        </div>
+        <div class="breakdown-item incorrect">
+          <div class="breakdown-number" id="incorrect-count">0</div>
+          <div class="breakdown-label">Incorrect</div>
+        </div>
+        <div class="breakdown-item skipped">
+          <div class="breakdown-number" id="skipped-count">0</div>
+          <div class="breakdown-label">Skipped</div>
+        </div>
+      </div>
+
+      <div class="detailed-results" id="detailed-results">
+        <h3>Detailed Results with Solutions</h3>
+        <div id="detailed-questions"></div>
+      </div>
+
+      <button class="restart-btn" onclick="restartQuiz()"><i class="fas fa-redo"></i> Take Quiz Again</button>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script src="script.js"></script>
+</body>
+</html>
